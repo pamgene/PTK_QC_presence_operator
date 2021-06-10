@@ -1,50 +1,34 @@
-# Template R operator
-
-The `Template R operator` is a template repository for the creation of R operators in Tercen. An overview of steps for developing an operator are:
-
-1. create a github repo
-2. install tercen_studio
-3. login to tercen_studio
-4. git clone the newly created repo
-5. start developing in R in tercen_studio
-6. add R packages to the repo
-7. push to the github repo
-8. go to tercen and install the operator
-
-More information can be found in [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
-
-Below is the operator README standard structure:
+# PTK QC Presence operator
 
 ##### Description
 
-The `Template R operator` is a template repository for the creation of R operators in Tercen.
+The `PTK QC Presence` is an operator that will perform a linear regression on each kinetic curve in the data set and calculate the probability p that there is no trend with cycle number (time). If this p-value is low it means that there likely is a trend with cycle number. Such a trend can be positive or negative, therefore the app calculates a "presence" value as the -log10(p) times the sign of the slope of the linear regression: presence = -log10(p) * sign(slope) Hence a presence value > +2 indicates a positive trend observed at a significance < 0.01.
+
+In addition to returning the presence value for each kinetic it will return the fraction of arrays with a positive trend for each peptide (presence > 2) as a spot annotation: ...fractionPresent. This value maybe used to e.g. exclude peptides from further analysis for which a positive trend is observed in only a minor fraction of the samples.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
+`y-axis`         | numeric, y values, per cell 
 
 Input parameters|.
 ---|---
-`input_var`        | parameter description
+`present cut-off`| present cut-off
 
 Output relations|.
 ---|---
-`output_var`        | output relation
-`Operator view`        | view of the Shiny application
+`slope`          | numeric, slope of the linear regression model
+`intercept`      | numeric, intercept of the linear regression model = 0
+`r2`             | numeric, R2 of the linear regression model
+`p`              | numeric, p-value 
+`presence`       | numeric, presence value
 
 ##### Details
 
-Details on the computation.
+Use the kinetics of your PTK measurement to select well expressed peptides for further by selecting peptides that show a positive trend during the incubation. Each kinetic curve receives a score that can be used to determine if a clear positive trend is present. In addition it calculates for each peptide in what percentage of the samples or arrays measured such a clear positive trend is observed. Visualizations of the results are implemented to assist the user in selecting well expressed peptides for further analysis.
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
-
+[PTK_QC_presence](https://github.com/tercen/PTK_QC_presence_operator)
+[PTK_QC_App](https://github.com/tercen/PTK_QC_app)
