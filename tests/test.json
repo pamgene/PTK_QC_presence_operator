@@ -3,10 +3,10 @@
   "name": "test",
   "namespace": "ds0",
   "inputDataUri": "groups_super_exp.csv",
-  "outputDataUri": ["table1.csv","table2.csv"],
-  "columns": [],
+  "outputDataUri": ["table1.csv","table2.csv","table3.csv"],
+  "columns": ["Group"],
   "rows": ["Variable"],
-  "colors": ["Group"],
+  "colors": [],
   "labels": [],
   "yAxis": "Measurement",
-  "xAxis": ""}
+  "xAxis": "Series"}
