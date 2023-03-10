@@ -3,12 +3,13 @@
   "description": "PTK_QC_presence",
   "tags": ["pamgene", "linear model"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/PTK_QC_presence_operator"],
+  "urls": ["https://github.com/pamgene/PTK_QC_presence_operator"],
   "properties": [
-  {
-    "kind": "DoubleProperty",
-    "name": "present cut-off",
-    "defaultValue": 2,
-    "description": "Cut-off value."
-  } ]
+    {
+      "kind": "DoubleProperty",
+      "name": "present cut-off",
+      "defaultValue": 2,
+      "description": "Cut-off value."
+    }
+  ]
 }
