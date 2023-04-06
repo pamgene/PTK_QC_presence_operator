@@ -25,6 +25,11 @@ count_presence <- function(df, cutOff) {
 }
 
 ctx = tercenCtx()
+seed <- ifelse(is.null(ctx$op.value('seed')), -1, as.double(ctx$op.value('seed')))
+if(seed > 0){
+  set.seed(seed)  
+}
+
 
 present_cut_off <- ifelse(is.null(ctx$op.value('present cut-off')), 2, as.double(ctx$op.value('present cut-off')))
 

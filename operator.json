@@ -10,5 +10,12 @@
     "name": "present cut-off",
     "defaultValue": 2,
     "description": "Cut-off value."
-  } ]
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "seed",
+    "defaultValue": -1,
+    "description": "Randomization seed."
+  }
+  ]
 }

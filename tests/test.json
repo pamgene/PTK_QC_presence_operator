@@ -9,4 +9,14 @@
   "colors": [],
   "labels": [],
   "yAxis": "Measurement",
-  "xAxis": "Series"}
+  "xAxis": "Series",
+  "absTol": 1e-3,
+  "propertyValues": [
+    {
+    "kind": "PropertyValue",
+    "name": "seed",
+    "value": "123"
+    }
+  ]
+
+}
